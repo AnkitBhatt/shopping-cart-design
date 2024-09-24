@@ -1,51 +1,70 @@
-
+import { useTitle } from "../hooks/useTitle";
 import { ProductCard } from "../components";
-import img1 from "../assets/images/img-1.jpg";
-import img2 from "../assets/images/img-2.jpg";
-import img3 from "../assets/images/img-3.jpg";
 
 export const Home = () => {
+
+  useTitle("Home");
   
-  const arr = [
+  const products = [
     {
-      image: img1,
+      id: 1,
+      image: "/images/1001.png",
       heading: "Sony Wh-Ch510 Bluetooth Wireless",
       price: 49
     },
     {
-      image: img2,
+      id: 2,
+      image: "/images/1002.jpg",
       heading: "boAt Rockerz 450",
       price: 99
     },
     {
-      image: img3,
+      id: 3,
+      image: "/images/1003.png",
       heading: "JBL Tune 760NC",
       price: 119
     },
     {
-      image: img1,
-      heading: "Sony Wh-Ch510 Bluetooth Wireless",
-      price: 49
+      id: 4,
+      image: "/images/1004.png",
+      heading: "Logitech H111 Wired",
+      price: 79
     },
     {
-      image: img2,
-      heading: "boAt Rockerz 450",
-      price: 99
+      id: 5,
+      image: "/images/1005.png",
+      heading: "Apple airpods max bluetooth headset",
+      price: 399
     },
     {
-      image: img3,
-      heading: "JBL Tune 760NC",
+      id: 6,
+      image: "/images/1006.png",
+      heading: "Zebronics Zeb-Thunder Wired",
       price: 119
+    },
+    {
+      id: 7,
+      image: "/images/1007.jpg",
+      heading: "Jabra Headphone with mic",
+      price: 199
+    },
+    {
+      id: 8,
+      image: "/images/1008.jpg",
+      heading: "Boult headphone with mic",
+      price: 39
     }
   ]
 
   return (
     <main className="max-w-7xl mx-auto py-7 my-7">
-      <div className="flex flex-wrap items-center">
-        {arr && arr.map((elem) => (
-          <ProductCard image={elem.image} heading={elem.heading} price={elem.price}/>
-        ))}
-      </div>
+      <section className="products">
+        {
+          products && products.map((product) => (
+            <ProductCard key={product.id} product={product}/>
+          ))
+        }
+      </section>
     </main>
   )
 }
